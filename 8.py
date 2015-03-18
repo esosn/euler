@@ -31,16 +31,14 @@ def compute(word):
         else: 
             value = value * int(word[i]) // int(word[i-13])
             if value > maxvalue: maxvalue = value
-    # print(value)
     return maxvalue
 
 dataset = data.split('0')
 
 max = 0
-for s in dataset:
-    if len(s) >= 13:
-        v = compute(s)
-        if v > max: max = v
+for s in [s for s in dataset if len(s) >= 13]:
+    v = compute(s)
+    if v > max: max = v
 
 print('%d' % max)
 times.append(time.clock())
