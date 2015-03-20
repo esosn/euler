@@ -9,7 +9,7 @@ def score(name):
     return value
 
 total = 0
-fo = open('euler/p022_names.txt')
+fo = open('p022_names.txt')
 raw = fo.read()
 fo.close()
 
