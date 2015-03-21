@@ -9,15 +9,14 @@ limit = 2000000
 # adapted for python 3
 def primes1(n):
     """ Returns  a list of primes < n """
-    sieve = [True] * (n//2)
-    primes = set([1] * (n//2))
+    sieve = [True] * (n // 2)
+    primes = set([1] * (n // 2))
     for i in range(3,int(n**0.5)+1,2):
         if sieve[i//2]:
-            sieve[i*i//2::i] = [False] * ((n-i*i-1)//(2*i)+1)
-    return [2] + [2*i+1 for i in range(1,n//2) if sieve[i]]
+            sieve[i*i // 2::i] = [False] * ((n - i*i - 1) // (2 * i) + 1)
+    return [2] + [2 * i + 1 for i in range(1, n // 2) if sieve[i]]
 
-primes = primes1(limit)
-print(sum(primes))
+print(sum(primes1(limit)))
 
 times.append(time.clock())
-print(times[len(times)-1]-times[len(times)-2])
+print(times[-1] - times[-2])

@@ -16,11 +16,11 @@ def primes1(n):
             sieve[i*i//2::i] = [False] * ((n-i*i-1)//(2*i)+1)
     return [2] + [2*i+1 for i in range(1,n//2) if sieve[i]]
     
-primes = primes1(int(math.sqrt(limit)))
+primes = primes1( int(math.sqrt(limit)) )
 for p in reversed(primes):
     if limit % p == 0:
         print(p)
         break
 
 times.append(time.clock())
-print(times[len(times)-1]-times[len(times)-2])
+print(times[-1] - times[-2])

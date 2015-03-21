@@ -17,8 +17,9 @@ def primes1(n):
     return [2] + [2*i+1 for i in range(1,n//2) if sieve[i]]
 
 # nth prime bounded by n ln n + n ln ln n
-primes = primes1(int(math.ceil(limit*math.log(limit)+limit*math.log(math.log(limit)))))
-print(primes[limit-1])
+bound = int( limit * math.log(limit) + limit * math.log(math.log(limit)) ) + 1
+primes = primes1(bound)
+print(primes[limit - 1])
 
 times.append(time.clock())
-print(times[len(times)-1]-times[len(times)-2])
+print(times[-1] - times[-2])

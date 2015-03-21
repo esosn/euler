@@ -4,34 +4,59 @@ times = []
 times.append(time.clock())
 
 # 1900-1-1 is monday, but count from 1901-1-1
-curday = 1+365
+# sunday = weekday 0
+curday = 1 + 365
 sundays = 0
-for year in range(1,101):
-    if curday % 7 == 0: sundays += 1
+for year in range(1, 101):
+    # 1
+    if curday % 7 == 0:
+        sundays += 1
     curday += 31
-    if curday % 7 == 0: sundays += 1
+    # 2
+    if curday % 7 == 0:
+        sundays += 1
     curday += 28 if year % 4 != 0 or not (year % 400 != 0 and year % 100 == 0) else 29
-    if curday % 7 == 0: sundays += 1
+    # 3
+    if curday % 7 == 0:
+        sundays += 1
     curday += 31
-    if curday % 7 == 0: sundays += 1
+    # 4
+    if curday % 7 == 0:
+        sundays += 1
     curday += 30
-    if curday % 7 == 0: sundays += 1
+    # 5
+    if curday % 7 == 0:
+        sundays += 1
     curday += 31
-    if curday % 7 == 0: sundays += 1
+    # 6
+    if curday % 7 == 0:
+        sundays += 1
     curday += 30
-    if curday % 7 == 0: sundays += 1
+    # 7
+    if curday % 7 == 0:
+        sundays += 1
     curday += 31
-    if curday % 7 == 0: sundays += 1
+    # 8
+    if curday % 7 == 0:
+        sundays += 1
     curday += 31
-    if curday % 7 == 0: sundays += 1
+    # 9
+    if curday % 7 == 0:
+        sundays += 1
     curday += 30
-    if curday % 7 == 0: sundays += 1
+    # 10
+    if curday % 7 == 0:
+        sundays += 1
     curday += 31
-    if curday % 7 == 0: sundays += 1
+    # 11
+    if curday % 7 == 0:
+        sundays += 1
     curday += 31
-    if curday % 7 == 0: sundays += 1
+    # 12
+    if curday % 7 == 0:
+        sundays += 1
     curday += 31
 print(sundays)
 
 times.append(time.clock())
-print(times[len(times)-1]-times[len(times)-2])
+print(times[-1] - times[-2])

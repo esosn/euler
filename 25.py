@@ -16,4 +16,4 @@ while len(str(f3)) < 1000:
 print(term)
 
 times.append(time.clock())
-print(times[len(times)-1]-times[len(times)-2])
+print(times[-1] - times[-2])
