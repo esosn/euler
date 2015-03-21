@@ -21,6 +21,7 @@ pset = set(primes)
 def permute(p):
     global pset
     pset.discard(p)
+    if not p + 3330 in pset: return
     perms = [p]
     s = str(p)
     q = deque(s)

@@ -16,7 +16,6 @@ def primes1(n):
             sieve[i*i//2::i] = [False] * ((n-i*i-1)//(2*i)+1)
     return [2] + [2*i+1 for i in range(1,n//2) if sieve[i]]
 
-# nth prime bounded by n ln n + n ln ln n
 primes = primes1(limit)
 print(sum(primes))
 
