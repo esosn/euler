@@ -46,6 +46,14 @@ def getdivisors(n):
             if dm[0] != n: divs.add(dm[0])
     return divs
 
+def is19pandigital(s):
+    seen = set()
+    for c in s:
+        if c == '0' or c in seen:
+            return False
+        seen.add(c)
+    return True
+
 def ispalindrome(n):
     x = str(n)
     return x == x[::-1]
