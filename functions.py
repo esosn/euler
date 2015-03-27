@@ -9,6 +9,9 @@ limit = 1
 times.append(time.clock())
 print(times[-1] - times[-2])
 
+def countdivs(n):
+    return sum(2 for i in range(1, int(math.sqrt(n)) + 1) if not n % i)
+
 # stein's algorithm
 def gcd(u, v):
     if u == 0:
@@ -70,6 +73,8 @@ def primes1(n):
             sieve[i*i//2::i] = [False] * ((n-i*i-1)//(2*i)+1)
     return [2] + [2*i+1 for i in range(1,n//2) if sieve[i]]
     
-def tri(n): return n * (n + 1) // 2
+def tri(n):
+    return n * (n + 1) // 2
 
-def untri(n): return (math.sqrt(1 + 8 * n) - 1) / 2 
+def untri(n):
+    return (math.sqrt(1 + 8 * n) - 1) / 2 
