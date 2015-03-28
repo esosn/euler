@@ -9,7 +9,7 @@ limit = 1
 times.append(time.clock())
 print(times[-1] - times[-2])
 
-def countdivs(n):
+def countdivisors(n):
     return sum(2 for i in range(1, int(math.sqrt(n)) + 1) if not n % i)
 
 # stein's algorithm
@@ -64,14 +64,14 @@ def ispalindrome(n):
 # sundaram implementation originally by Robert William Hanks
 # http://stackoverflow.com/a/3035188/1046207
 # adapted for python 3
-def primes1(n):
+def sundaram(n):
     """ Returns  a list of primes < n """
-    sieve = [True] * (n//2)
-    primes = set([1] * (n//2))
-    for i in range(3,int(n**0.5)+1,2):
-        if sieve[i//2]:
-            sieve[i*i//2::i] = [False] * ((n-i*i-1)//(2*i)+1)
-    return [2] + [2*i+1 for i in range(1,n//2) if sieve[i]]
+    sieve = [True] * (n // 2)
+    primes = set([1] * (n // 2))
+    for i in range(3, int(n**0.5) + 1, 2):
+        if sieve[i // 2]:
+            sieve[i*i // 2::i] = [False] * ((n - i*i - 1) // (2*i) + 1)
+    return [2] + [2*i + 1 for i in range(1, n // 2) if sieve[i]]
     
 def tri(n):
     return n * (n + 1) // 2
