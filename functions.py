@@ -49,7 +49,10 @@ def getdivisors(n):
             if dm[0] != n: divs.add(dm[0])
     return divs
 
-def is19pandigital(s):
+def is19pandigital(x):
+    s = str(x)
+    if len(s) != 9:
+        return False
     seen = set()
     for c in s:
         if c == '0' or c in seen:
