@@ -43,6 +43,10 @@ def getdivisors(n):
             if dm[0] != n: divs.add(dm[0])
     return divs
 
+def hexag(n):
+    x = int(n)
+    return x * (2 * x - 1)
+    
 def ispandigital(x, n = 9, incl_zero = False):
     s = str(x)
     maxlen = n if not incl_zero else n + 1
@@ -58,6 +62,10 @@ def ispandigital(x, n = 9, incl_zero = False):
 def ispalindrome(n):
     x = str(n)
     return x == x[::-1]
+
+def pent(n):
+    x = int(n)
+    return n * (3 * n - 1) // 2
 
 # callback needs to be defined with a *args or **args param at the end
 # def my_callback(*args):
@@ -86,6 +94,14 @@ def sundaram(n):
 def tri(x):
     n = int(x)
     return n * (n + 1) // 2
+
+def unhexag(n):
+    x = int(n)
+    return (math.sqrt(1 + 8 * n) + 1) / 4
+
+def unpent(n):
+    x = int(n)
+    return ((math.sqrt(1 + 24 * x) - 1) / 2 + 1) / 3
 
 def untri(x):
     n = int(x)
