@@ -1,13 +1,7 @@
 # handy functions
-
 import time
 import math
-times = []
-times.append(time.clock())
-limit = 1
-
-times.append(time.clock())
-print(times[-1] - times[-2])
+from collections import deque
 
 def countdivisors(n):
     return sum(2 for i in range(1, int(math.sqrt(n)) + 1) if not n % i)
@@ -49,13 +43,14 @@ def getdivisors(n):
             if dm[0] != n: divs.add(dm[0])
     return divs
 
-def ispandigital(x, n = 9):
+def ispandigital(x, n = 9, incl_zero = False):
     s = str(x)
-    if len(s) != n:
+    maxlen = n if not incl_zero else n + 1
+    if len(s) != maxlen:
         return False
     seen = set()
     for c in s:
-        if c == '0' or c in seen:
+        if (not incl_zero and c == '0') or c in seen or int(c) > n:
             return False
         seen.add(c)
     return True
@@ -63,6 +58,18 @@ def ispandigital(x, n = 9):
 def ispalindrome(n):
     x = str(n)
     return x == x[::-1]
+
+# callback needs to be defined with a *args or **args param at the end
+# def my_callback(*args):
+#     cb_args = args[-1]
+def permute(s, dq, depth, maxdepth, callback, cb_args):
+    if depth >= maxdepth:
+        callback(s, dq, depth, maxdepth, cb_args)
+        return
+    for i in range(len(dq)):
+        x = str(dq.popleft())
+        permute(str(s) + x, dq, depth + 1, maxdepth, callback, cb_args)
+        dq.append(x)
 
 # sundaram implementation originally by Robert William Hanks
 # http://stackoverflow.com/a/3035188/1046207
@@ -76,8 +83,10 @@ def sundaram(n):
             sieve[i*i // 2::i] = [False] * ((n - i*i - 1) // (2*i) + 1)
     return [2] + [2*i + 1 for i in range(1, n // 2) if sieve[i]]
     
-def tri(n):
+def tri(x):
+    n = int(x)
     return n * (n + 1) // 2
 
-def untri(n):
+def untri(x):
+    n = int(x)
     return (math.sqrt(1 + 8 * n) - 1) / 2 

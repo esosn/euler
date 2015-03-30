@@ -5,7 +5,7 @@
 import math
 from functions import sundaram
 
-mr_known_values = {x:True for x in sundaram(1000)}
+mr_known_values = {x:True for x in sundaram(10000)}
 
 def iswitness(n, a, d, s):
     x = pow(a, d, n)

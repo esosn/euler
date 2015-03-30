@@ -1,5 +1,6 @@
 import time
 import math
+from functions import gcd
 times = []
 times.append(time.clock())
 limit = 4
@@ -27,34 +28,6 @@ denom = 1
 for f in found:
     num *= f[0]
     denom *= f[1]
-
-# stein's algorithm
-def gcd(u, v):
-    if u == 0:
-        if v == 0:
-            return 0
-        return v
-    elif v == 0:
-        return x
-    if u == v:
-        return u
-    k = 0
-    while u != v and u > 0:
-        if u % 2 == 0:
-            u = u // 2
-            if v % 2 == 0:
-                v = v // 2
-                k += 1
-        elif v % 2 == 0:
-            v = v // 2
-        else:
-            if u >= v:
-                u = (u - v) // 2
-            else:
-                newv = u
-                u = (v - u) // 2
-                v = newv
-    return v * 2 ** k
 
 denom = denom // gcd(num, denom)
 
