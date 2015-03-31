@@ -4,16 +4,12 @@ from functions import tri, unpent, unhexag
 times = []
 times.append(time.clock())
 
-for i in range(40756, 999999999999):
+i = 40756 # want the next one
+while True:
     t = tri(i)
-    p = unpent(t)
-    if p != int(p):
-        continue
-    h = unhexag(t)
-    if h != int(h):
-        continue
-    print(t)
-    break
-    
+    if unpent(t).is_integer() and unhexag(t).is_integer():
+        print(t)
+        break
+    i += 1
 times += [time.clock()]
 print(times[-1] - times[-2])
