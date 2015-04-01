@@ -6,6 +6,7 @@ times.append(time.clock())
 limit = 1000
 
 # dickson's method for finding pythagorean triples
+# not the fastest choice but guaranteed to find all
 # find positive ints r, s, t; r2 = 2st
 # a, b, c = r + s, r + t, r + s + t
 

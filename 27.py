@@ -1,12 +1,12 @@
 import time
 import math
 import miller_rabin
-from functions import sundaram
+from functions import prime_sieve
 times = []
 times.append(time.clock())
 limit = 1000
 
-plist = sundaram(limit)
+plist = prime_sieve(limit)
         
 def countruns(a, b):
     global maxrun, maxa ,maxb

@@ -1,13 +1,13 @@
 import time
 import math
 from collections import deque
-from functions import sundaram
+from functions import prime_sieve
 times = []
 times += [time.clock()]
 
 limit = 10**6
     
-primes = sundaram(limit)
+primes = prime_sieve(limit)
 pset = set(primes)
 
 times += [time.clock()]

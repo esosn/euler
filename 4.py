@@ -1,13 +1,10 @@
 import time
 import math
 from itertools import product
+from functions import ispalindrome
 times = []
 times.append(time.clock())
 limit = 1000
-
-def ispalindrome(n):
-    x = str(n)
-    return x == x[::-1]
 
 # naive implementation
 # worst O(n2), best O(1), average O(n)

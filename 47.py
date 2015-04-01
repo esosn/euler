@@ -1,6 +1,6 @@
 import time
 import math
-from functions import sundaram
+from functions import prime_sieve
 from array import array
 times = []
 times.append(time.clock())
@@ -10,7 +10,7 @@ times.append(time.clock())
 
 runsize = 4
 limit = 1000000
-primes = sundaram(1000)
+primes = prime_sieve(1000)
 
 def haspfacts(index):
     for i in range(runsize):

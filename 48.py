@@ -1,6 +1,5 @@
 import time
 import math
-from array import array
 times = []
 times.append(time.clock())
 limit = 1000

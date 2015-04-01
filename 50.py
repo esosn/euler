@@ -1,11 +1,11 @@
 import time
 import math
-from functions import sundaram
+from functions import prime_sieve
 times = []
 times.append(time.clock())
 
 limit = 1000000
-primes = sundaram(limit)
+primes = prime_sieve(limit)
 pset = set(primes)
 
 # search with a sliding window that shrinks in size

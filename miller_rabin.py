@@ -3,9 +3,9 @@
 # http://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test
 
 import math
-from functions import sundaram
+from functions import prime_sieve
 
-mr_known_values = {x:True for x in sundaram(10000)}
+mr_known_values = {x:True for x in prime_sieve(10000)}
 
 def iswitness(n, a, d, s):
     x = pow(a, d, n)

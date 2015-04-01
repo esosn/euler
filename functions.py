@@ -3,6 +3,7 @@ import time
 import math
 from collections import deque
 
+# counts all divisors
 def countdivisors(n):
     return sum(2 for i in range(1, int(math.sqrt(n)) + 1) if not n % i)
 
@@ -34,6 +35,7 @@ def gcd(u, v):
                 v = newv
     return v * 2 ** k
 
+# gets proper divisors
 def getdivisors(n):
     divs = set()
     for x in range(1, int(math.sqrt(n)) + 1):
@@ -79,16 +81,20 @@ def permute(s, dq, depth, maxdepth, callback, cb_args):
         permute(str(s) + x, dq, depth + 1, maxdepth, callback, cb_args)
         dq.append(x)
 
-# sundaram implementation originally by Robert William Hanks
+# sieve implementation originally by Robert William Hanks
 # http://stackoverflow.com/a/3035188/1046207
 # adapted for python 3
-def sundaram(n):
-    """ Returns  a list of primes < n """
-    sieve = [True] * (n // 2)
-    for i in range(3, int(n**0.5) + 1, 2):
-        if sieve[i // 2]:
-            sieve[i*i // 2::i] = [False] * ((n - i*i - 1) // (2*i) + 1)
-    return [2] + [2*i + 1 for i in range(1, n // 2) if sieve[i]]
+def prime_sieve(n):
+    """ Input n>=6, Returns a list of primes, 2 <= p < n """
+    n, correction = n - n % 6 + 6, 2 - (n % 6 > 1)
+    sieve = [True] * (n // 3)
+    for i in range(1, int(n ** 0.5) // 3 + 1):
+      if sieve[i]:
+        k = 3*i + 1 | 1
+        sieve[k*k // 3::2*k] = [False] * ((n // 6 - k*k // 6 - 1) // k + 1)
+        sieve[k*(k - 2*(i & 1) + 4) //3::2*k] = \
+        [False] * ((n // 6 - k*(k - 2*(i & 1) + 4) // 6 - 1) // k + 1)
+    return [2, 3] + [3*i + 1 | 1 for i in range(1, n // 3-correction) if sieve[i]]
     
 def tri(x):
     n = int(x)

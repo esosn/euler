@@ -5,9 +5,9 @@ times = []
 times.append(time.clock())
 
 fo = open('p013.txt')
-data = [int(n) for n in re.split(r'\s*', fo.read())]
+data = sum(int(n) for n in re.split(r'\s*', fo.read()))
 fo.close()
-print( str(sum(data))[:10] )
+print( str(data)[:10] )
  
 times.append(time.clock())
 print(times[-1] - times[-2])

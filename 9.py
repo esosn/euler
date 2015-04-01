@@ -7,7 +7,7 @@ limit = 1000
 
 for a in range(1, limit):
     for b in range(a, limit):
-        if a+b+math.sqrt(a*a+b*b) == limit:
+        if a + b + math.sqrt(a*a + b*b) == limit:
             print(a*b * int( math.sqrt(a*a + b*b) ))
             break
 

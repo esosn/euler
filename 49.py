@@ -1,11 +1,11 @@
 import time
 import math
 from collections import deque
-from functions import sundaram
+from functions import prime_sieve
 times = []
 times.append(time.clock())
     
-primes = sundaram(10000)[168:] #first 4 digit prime is #169
+primes = prime_sieve(10000)[168:] #first 4 digit prime is #169
 pset = set(primes)
 pset.discard(1487) # known answer
 

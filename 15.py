@@ -4,8 +4,6 @@ times = []
 times.append(time.clock())
 limit = 20
 
-
-
 paths = {}
 for i in range(limit + 1):
     paths[(i,0)] = 1
@@ -33,7 +31,7 @@ print(times[-1] - times[-2])
 curcell = 1
 for i in range(1, limit + 1):
     curcell *= (limit * 2 + 1 - i) / i
-print(curcell)
+print(int(curcell))
 
 times.append(time.clock())
 print(times[-1] - times[-2])
