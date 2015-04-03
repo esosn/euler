@@ -48,6 +48,14 @@ def getdivisors(n):
 def hexag(n):
     x = int(n)
     return x * (2 * x - 1)
+
+def islychrel(n, depth, maxdepth):
+    if depth >= maxdepth:
+        return True
+    x = n + int(str(str(n)[::-1]))
+    if ispalindrome(x):
+        return False
+    return islychrel(x, depth + 1, maxdepth)
     
 def ispandigital(x, n = 9, incl_zero = False):
     s = str(x)
@@ -64,6 +72,11 @@ def ispandigital(x, n = 9, incl_zero = False):
 def ispalindrome(n):
     x = str(n)
     return x == x[::-1]
+
+def ncr(n, r):
+    nfact = math.factorial(n)
+    rfact = math.factorial(r)
+    return nfact / (rfact * math.factorial(n - r))
 
 def pent(n):
     x = int(n)
@@ -89,11 +102,11 @@ def prime_sieve(n):
     n, correction = n - n % 6 + 6, 2 - (n % 6 > 1)
     sieve = [True] * (n // 3)
     for i in range(1, int(n ** 0.5) // 3 + 1):
-      if sieve[i]:
-        k = 3*i + 1 | 1
-        sieve[k*k // 3::2*k] = [False] * ((n // 6 - k*k // 6 - 1) // k + 1)
-        sieve[k*(k - 2*(i & 1) + 4) //3::2*k] = \
-        [False] * ((n // 6 - k*(k - 2*(i & 1) + 4) // 6 - 1) // k + 1)
+        if sieve[i]:
+            k = 3*i + 1 | 1
+            sieve[k*k // 3::2*k] = [False] * ((n // 6 - k*k // 6 - 1) // k + 1)
+            sieve[k*(k - 2*(i & 1) + 4) //3::2*k] = \
+            [False] * ((n // 6 - k*(k - 2*(i & 1) + 4) // 6 - 1) // k + 1)
     return [2, 3] + [3*i + 1 | 1 for i in range(1, n // 3-correction) if sieve[i]]
     
 def tri(x):
