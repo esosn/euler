@@ -45,6 +45,10 @@ def getdivisors(n):
             if dm[0] != n: divs.add(dm[0])
     return divs
 
+def hept(n):
+    x = int(n)
+    return x * (5 * x - 3) // 2
+
 def hexag(n):
     x = int(n)
     return x * (2 * x - 1)
@@ -78,6 +82,10 @@ def ncr(n, r):
     rfact = math.factorial(r)
     return nfact / (rfact * math.factorial(n - r))
 
+def octag(n):
+    x = int(n)
+    return x * (3 * x - 2)
+
 def pent(n):
     x = int(n)
     return n * (3 * n - 1) // 2
@@ -109,13 +117,45 @@ def prime_sieve(n):
             [False] * ((n // 6 - k*(k - 2*(i & 1) + 4) // 6 - 1) // k + 1)
     return [2, 3] + [3*i + 1 | 1 for i in range(1, n // 3-correction) if sieve[i]]
     
+def primefactors(n, prime_list):
+    if n in prime_list:
+        return [n]
+    results = []
+    sqrtn = math.sqrt(n)
+    for p in prime_list:
+        dm = divmod(n, p)
+        if not dm[1]:
+            results += [p]
+        if sqrtn < p:
+            break
+    return results    
+    
+def sumdigits(n):
+    total = 0
+    for c in str(n):
+        total += int(c)
+    return total
+
+def totient(n, prime_list):
+    for p in primefactors(n, prime_list):
+        n *= 1 - 1/p
+    return int(n)
+        
 def tri(x):
     n = int(x)
     return n * (n + 1) // 2
 
+def unhept(n):
+    x = int(n)
+    return (math.sqrt(9 + 40 * n) + 3) / 10
+
 def unhexag(n):
     x = int(n)
     return (math.sqrt(1 + 8 * n) + 1) / 4
+
+def unoctag(n):
+    x = int(n)
+    return (math.sqrt(4 + 12 * n) + 2) / 6
 
 def unpent(n):
     x = int(n)
